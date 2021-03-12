@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+
+function isLoginValid(login) {
+  if (login.length >= 4 && login.length <= 16) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isLoginUnique(allLogins, login) {
+  if (allLogins.indexOf(login) === -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function addLogin(allLogins, login) {
+  if (isLoginValid(login) !== true) {
+    return 'Ошибка! Логин должен быть от 4 до 16 символов';
+  } else {
+    if (isLoginUnique(allLogins, login) === false) {
+      return 'Такой логин уже используется!';
+    } else {
+      logins.push(login);
+      return 'Логин успешно добавлен!';
+    }
+  }
+}
+
+console.log(addLogin(logins, 'Ajax')); // 'Логин успешно добавлен!'
+console.log(addLogin(logins, 'robotGoogles')); // 'Такой логин уже используется!'
+console.log(addLogin(logins, 'Zod')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'jqueryisextremelyfast')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+  </script>
+  
+</body>
+</html>
